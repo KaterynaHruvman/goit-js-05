@@ -1,15 +1,20 @@
 class Storage {
-  constructor(item) {
-    this.item = item
+  constructor(items) {
+    this.items = items
   }
-  getItems(item) {
-    return this.item
+  getItems() {
+    return this.items
   }
   addItem(item) {
-    
+    this.items.push(item);
+   
   }
-  
-  
+  removeItem(item) {
+    for (let i = 0; i < this.items.length; i += 1)
+      if (this.items[i] === item) {
+        this.items.splice(i, 1);
+      };
+  }
 }
 console.log(typeof Storage);
 // 'function'
@@ -31,8 +36,8 @@ const goods = [
   'Антигравитатор'
 ] */
 
-// storage.addItem('Дроид');
-// console.log(storage.getItems());
+ storage.addItem('Дроид');
+ console.log(storage.getItems());
 /* [
   'Нанитоиды',
   'Пролонгер',
@@ -41,12 +46,7 @@ const goods = [
   'Дроид'
 ] */
 
-// storage.removeItem('Пролонгер');
-// console.log(storage.getItems());
-/* [
-  'Нанитоиды',
-  'Железные жупи',
-  'Антигравитатор',
-  'Дроид'
-] */
+storage.removeItem('Пролонгер');
+console.log(storage.getItems());
+
 
